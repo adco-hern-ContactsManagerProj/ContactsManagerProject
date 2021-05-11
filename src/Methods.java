@@ -72,13 +72,12 @@ public abstract class Methods implements ContactInterface {
         System.out.println("Who would you like to search for: ");
         if(contactsList().contains(userSearch)){
             System.out.println("Great! We found who you were looking for: ");
-//            HashMap<String, String> usernames = new HashMap<>();
-//            String list = contactsList();
+
         }else{
             System.out.println("Sorry we could not find a user with that name, please try again");
             searchContactName();
         }
-
+        return userSearch;
     }
 
     public static void deleteContact(){
