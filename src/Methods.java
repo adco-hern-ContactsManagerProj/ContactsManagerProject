@@ -27,22 +27,24 @@ public abstract class Methods implements ContactInterface {
 
     }
 
-    public static void contactsList() throws IOException {
-        List<String> contact = Arrays.asList(
-                "Name | Phone number",
-                "-------------------",
-                "Lebron James | 210-199-1999",
-                "Michael Jordan | 210-299-2999",
-                "Carmelo Anthony | 210-399-3999"
-        );
-
-        Files.write(contactsTxtPath, contact);
+    public static String contactsList() throws IOException {
+//        List<String> contact = Arrays.asList(
+//                "Name | Phone number",
+//                "-------------------",
+//                "Lebron James | 210-199-1999",
+//                "Michael Jordan | 210-299-2999",
+//                "Carmelo Anthony | 210-399-3999"
+//        );
+//
+//        Files.write(contactsTxtPath, contact);
 
         List<String> contactList = Files.readAllLines(contactsTxtPath);
-
+        String listOfContacts = "";
         for (String Contacts : contactList) {
             System.out.println(Contacts);
+            listOfContacts = Contacts;
         }
+        return listOfContacts;
     }
 
     public static void addContact() throws IOException {
@@ -60,11 +62,22 @@ public abstract class Methods implements ContactInterface {
         List<String> contactList = Files.readAllLines(contactsTxtPath);
         for (String newContactList : contactList) {
             System.out.println(newContactList);
-        }
 
+        }
     }
 
-    public static void searchContactName(){
+    public static String searchContactName() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        String userSearch = scanner.next();
+        System.out.println("Who would you like to search for: ");
+        if(contactsList().contains(userSearch)){
+            System.out.println("Great! We found who you were looking for: ");
+//            HashMap<String, String> usernames = new HashMap<>();
+//            String list = contactsList();
+        }else{
+            System.out.println("Sorry we could not find a user with that name, please try again");
+            searchContactName();
+        }
 
     }
 
