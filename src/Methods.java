@@ -90,7 +90,8 @@ public abstract class Methods implements ContactInterface {
                 String userinput = scanner.nextLine();
                 if(userinput.equalsIgnoreCase("yes")){
                     //need something here to delete;
-
+                    StringBuffer buff = new StringBuffer(contact);
+                    buff.delete(0, buff.lastIndexOf(userInput));
                     delete = contact + " has been deleted!";
                     System.out.println(delete);
                 }else if(userinput.equalsIgnoreCase("no")){
