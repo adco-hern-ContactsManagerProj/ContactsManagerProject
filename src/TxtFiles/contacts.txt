@@ -1,7 +1,4 @@
-Name | Phone number
--------------------
-Lebron James | 210-199-1999
-Michael Jordan | 210-299-2999
-Carmelo Anthony | 210-399-3999
-ww | 22
-Nathan | 2104105789
+Holly Rochell | 2105555555
+Victor Hernandez | 2101111111
+cool guy | 2103333333
+lame person | 2100000000

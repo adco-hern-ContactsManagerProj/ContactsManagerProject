@@ -61,26 +61,43 @@ public abstract class Methods implements ContactInterface {
 
     public static void searchContactName() throws IOException {
         Scanner scanner = new Scanner(System.in);
+        String var = "";
         System.out.println("Who would you like to search for: ");
-        String userSearch = scanner.next();
+        String userSearch = scanner.nextLine();
         List<String> searchList = contactStrings();
-        if (userSearch.length() <= 1){
-            for(String contact : searchList){
-                if(contact.contains(userSearch)){
-                    System.out.println("Great! We found who you were looking for: ");
-                    System.out.println(contact);
-                }else{
-                    continue;
+        for(String contact : searchList){
+                if(contact.toLowerCase().contains(userSearch.toLowerCase())) {
+                    var = "Great! We found who you were looking for: " + contact;
+                    break;
+                }else {
+                    var = "Sorry we did not find who you were looking for, Please try again.";
                 }
             }
-        } else {
-            System.out.println("Sorry we did not find who you were looking for, Please try again.");
-        }
+        System.out.println(var);
     }
 
     public static void deleteContact() throws IOException {
+        Scanner scanner = new Scanner(System.in);
+        String delete = "";
+        String contactDelete = "";
+        System.out.println("Type the name of the contact you want to delete");
+        String userInput = scanner.nextLine();
+        List<String> searchList = contactStrings();
+        for(String contact : searchList){
+            if(contact.toLowerCase().contains(userInput.toLowerCase())){
+                delete = "are you sure you want to delete " + contact + " ? [Yes or No]";
+                System.out.println(delete);
+                String userinput = scanner.nextLine();
+                if(userinput.equalsIgnoreCase("yes")){
+                    //need something here to delete;
 
-        System.out.println(contactsList());
-
+                    delete = contact + " has been deleted!";
+                    System.out.println(delete);
+                }else if(userinput.equalsIgnoreCase("no")){
+                    delete = "okay";
+                    System.out.println(delete);
+                }
+            }
+        }
     }
 }
